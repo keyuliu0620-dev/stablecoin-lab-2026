@@ -166,7 +166,7 @@ Deploy to the Sepolia testnet and verify the source on Etherscan; submit the con
 ```bash
 cp .env.example .env    # fill in private key, RPC URL, Etherscan API key
 source .env
-forge script script/Deploy.s.sol:Deploy \
+forge script script/Deploy.s.sol:Deploy 
   --rpc-url $SEPOLIA_RPC_URL --broadcast --verify --private-key $PRIVATE_KEY
 ```
 
@@ -176,7 +176,7 @@ and only the verification step errors. **Do not redeploy because of it** — ver
 
 ```bash
 # one run per contract, with its own address and source file
-forge verify-contract <address> src/SimpleStablecoin.sol:SimpleStablecoin \
+forge verify-contract <address> src/SimpleStablecoin.sol:SimpleStablecoin 
   --chain sepolia --etherscan-api-key $ETHERSCAN_API_KEY
 ```
 
@@ -313,3 +313,20 @@ Deployment date: 2026-10-20
 - Grant MINTER_ROLE to Vault: `0x18e8d619e40bffb50b1c1d2d178869c0ba4619fe50aa586e6d4fecbaaafa44c1`
 
 The MINTER_ROLE assignment was checked on-chain and returned `true`.
+
+---
+
+## Submission Evidence
+
+### Ex3 — Breaking the Peg
+
+This screenshot demonstrates the stablecoin depeg after an attacker
+receives MINTER_ROLE and mints tokens without depositing collateral.
+
+![Ex3 depeg evidence](evidence/Ex3-screenshot.png)
+
+### Foundry Test Results
+
+All 27 tests passed, with 0 failures and 0 skipped tests.
+
+![Foundry test results](evidence/forge-test-results.png)
