@@ -292,3 +292,24 @@ flowchart TD
     Admin -->|Grant MINTER_ROLE| Vault
     Admin -->|Pause / Unpause| Stable
 ```
+
+## Sepolia Deployment
+
+Network: Ethereum Sepolia Testnet
+Chain ID: 11155111
+Deployment date: 2026-10-20
+
+| Contract | Address | Etherscan |
+|---|---|---|
+| MockUSDC | `0x414a29D3901A4a95359d4D4Bf92d74dB4F07a6C0` | [View source](https://sepolia.etherscan.io/address/0x414a29D3901A4a95359d4D4Bf92d74dB4F07a6C0#code) |
+| SimpleStablecoin | `0x8Cc4FB5E0B136E6Fa2F055d4e139C12Ff0816D88` | [View source](https://sepolia.etherscan.io/address/0x8Cc4FB5E0B136E6Fa2F055d4e139C12Ff0816D88#code) |
+| Vault | `0x15bf113a94B99a2dBD95B1C5cd58cc96fD77396C` | [View source](https://sepolia.etherscan.io/address/0x15bf113a94B99a2dBD95B1C5cd58cc96fD77396C#code) |
+
+### Deployment transactions
+
+- MockUSDC deployment: `0xe8dcbdcb5d6e2670e699105a8ce2650ce89985b6d82262d3c47a2708ebd8add2`
+- SimpleStablecoin deployment: `0xa43657d0efd84bc491a2f23f3a9cbde74f0f5fddd3fbded1a88eca9a1af9cc5d`
+- Vault deployment: `0x0cad5e4bc044e0d4171f10f26ee98934bf0cb19d2b8971d4758f97cf358df675`
+- Grant MINTER_ROLE to Vault: `0x18e8d619e40bffb50b1c1d2d178869c0ba4619fe50aa586e6d4fecbaaafa44c1`
+
+The MINTER_ROLE assignment was checked on-chain and returned `true`.
