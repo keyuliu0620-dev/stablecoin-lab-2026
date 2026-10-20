@@ -268,3 +268,27 @@ These have no standard answers. They are the real point of this lab:
    `totalCollateral()` invariant?
 
 Question 4 is the door into next week's RWA lab.
+
+### Architecture diagram
+
+```mermaid
+flowchart TD
+    User[User]
+    USDC[MockUSDC - 6 decimals]
+    Vault[Vault]
+    Stable[SimpleStablecoin - 6 decimals]
+    Admin[Admin]
+
+    User -->|1. Approve collateral| USDC
+    User -->|2. deposit amount| Vault
+    Vault -->|3. Transfer collateral| USDC
+    Vault -->|4. Mint equal sUSD| Stable
+    Stable -->|5. Receive sUSD| User
+
+    User -->|6. redeem amount| Vault
+    Vault -->|7. Burn sUSD| Stable
+    Vault -->|8. Return collateral| User
+
+    Admin -->|Grant MINTER_ROLE| Vault
+    Admin -->|Pause / Unpause| Stable
+```
